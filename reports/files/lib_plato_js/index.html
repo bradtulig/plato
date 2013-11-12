@@ -27,7 +27,7 @@
 <div class="navbar navbar-fixed-top">
   <div class="container">
     <a class="navbar-brand" href="http://github.com/jsoverson/plato">Plato on Github</a>
-    <ul class="nav">
+    <ul class="nav navbar-nav">
       <li>
         <a href="../../index.html">Report Home</a>
       </li>
@@ -45,11 +45,11 @@
   <div class="row">
     <div class="col-md-6">
       <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"></i></a></h2>
-      <p class="stat">65.27</p>
+      <p class="stat">64.95</p>
     </div>
     <div class="col-md-6">
       <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC"></i></h2>
-      <p class="stat">238</p>
+      <p class="stat">242</p>
     </div>
   </div>
   <div class="row historical">
@@ -63,11 +63,11 @@
   <div class="row">
     <div class="col-md-6">
       <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty"></i></a></h2>
-      <p class="stat">38.94</p>
+      <p class="stat">39.15</p>
     </div>
     <div class="col-md-6">
       <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs"></i></a></h2>
-      <p class="stat">2.47</p>
+      <p class="stat">2.56</p>
     </div>
   </div>
 </div>
@@ -120,6 +120,7 @@ var util = require(&#039;./util&#039;),
     };
 
 var overviewTemplate = __dirname + &#039;/templates/overview.html&#039;,
+    displayTemplate = __dirname + &#039;/templates/display.html&#039;,
     fileTemplate = __dirname + &#039;/templates/file.html&#039;,
     assets = __dirname + &#039;/assets/&#039;,
     fileDir = &#039;files&#039;;
@@ -220,6 +221,7 @@ exports.inspect = function(files, outputDir, options, done) {
       runReports(files,function(){
         var reportFilePrefix = path.join(outputDir, &#039;report&#039;);
         var overview = path.join(outputDir, &#039;index.html&#039;);
+        var wallDisplay = path.join(outputDir, &#039;display.html&#039;);
 
         fs.copy(assets, path.join(outputDir, &#039;assets&#039;), function(){
           var overviewReport = exports.getOverviewReport(reports);
@@ -228,7 +230,11 @@ exports.inspect = function(files, outputDir, options, done) {
           writeOverview(overview, overviewReport, {
             title : options.title,
             flags : flags
-          });
+          }, overviewTemplate);
+          writeOverview(wallDisplay, overviewReport, {
+            title : options.title,
+            flags : flags
+          }, displayTemplate);
           done(reports);
         });
       });
@@ -295,8 +301,6 @@ function updateHistoricalReport(outfilePrefix, overview, options) {
   writeReport(outfilePrefix + &#039;.history&#039;, history.toJSON(), &#039;__history&#039;);
 }
 
-
-
 function writeFile(file, source) {
   log.info(&#039;Writing file &quot;%s&quot;.&#039;, file);
   fs.writeFileSync(file, source, &#039;utf8&#039;);
@@ -314,8 +318,8 @@ function writeReport(outfilePrefix, report, exportName) {
   writeFile(outfilePrefix + &#039;.js&#039;, module);
 }
 
-function writeOverview(outfile, report, options) {
-  var overviewSource = fs.readFileSync(overviewTemplate).toString();
+function writeOverview(outfile, report, options, templatePath) {
+  var overviewSource = fs.readFileSync(templatePath).toString();
   var parsed = _.template(overviewSource, {
     report : report,
     options : options
