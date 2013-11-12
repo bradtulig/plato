@@ -26,20 +26,47 @@ body {
   width: 100%;
 }
 
-.reportBlock.lineCount { background-color: #2980b9; }
-.reportBlock.maintainability { background-color: #8e44ad; }
+h2.reportTitle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #7F8181;
+  font-size: 14px;
+  font-weight: 200;
+  padding: 10px;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.reportBlock.lineCount { background-color: #272727; }
+.reportBlock.maintainability { background-color: #272727; }
 .reportBlock.maintainabilityList,
 .reportBlock.locList,
 .reportBlock.lintList {
-  background-color: #2c3e50;
+  background-color: #2A2A2A;
   margin-top: 15px;
+  padding: 20px 5px;
 }
 
-.reportBlock small {
+.reportBlock .chart-label {
   display: block;
   padding-top: 100px;
-  font-size: 90%;
   text-align: center;
+  color: #7F8181;
+  font-size: 14px;
+  font-weight: 200;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.reportBlock strong {
+  display: block;
+  font-size: 90%;
+}
+
+.reportBlock li {
+  border-bottom: 1px solid #323232;
 }
 
 .reportBlock h1 {

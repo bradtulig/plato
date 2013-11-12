@@ -30,7 +30,7 @@
         <div class="col-md-6">
             <div class="reportBlock lineCount">
                 <div class="reportContent">
-                    <small>Total / Average Lines</small>
+                    <small class="chart-label">Total / Average Lines</small>
                     <h1>1136 / 75</h1>
                 </div>
                 <div id="chart_historical_sloc" class="chart js-chart"></div>
@@ -39,7 +39,7 @@
         <div class="col-md-6">
             <div class="reportBlock maintainability">
                 <div class="reportContent">
-                    <small>Average Maintainability</small>
+                    <small class="chart-label">Average Maintainability</small>
                     <h1>70.94</h1>
                 </div>
                 <div id="chart_historical_maint" class="chart js-chart"></div>
@@ -50,84 +50,99 @@
     <div class="row">
         <div class="col-md-4">
             <div class="reportBlock maintainabilityList">
-                <h3>Worst Maintainbility Scores:</h3>
+                <h2 class="reportTitle">Worst Maintainability Scores</h2>
                 <ul class="list-unstyled">
 
-                    <li>86: lib/logger.js</li>
+                    <li>
+                        <strong>86 score</strong>
+                        <small>lib/logger.js</small>
+                    </li>
 
-                    <li>81: lib/info.js</li>
+                    <li>
+                        <strong>81 score</strong>
+                        <small>lib/info.js</small>
+                    </li>
 
-                    <li>80: lib/assets/scripts/plato-sortable-file-list.js</li>
+                    <li>
+                        <strong>80 score</strong>
+                        <small>lib/assets/scripts/plato-sortable-file-list.js</small>
+                    </li>
 
-                    <li>80: lib/models/History.js</li>
+                    <li>
+                        <strong>80 score</strong>
+                        <small>lib/models/History.js</small>
+                    </li>
 
-                    <li>78: lib/reporters/complexity/index.js</li>
-
-                    <li>73: lib/util.js</li>
-
-                    <li>69: lib/reporters/jshint/index.js</li>
-
-                    <li>69: lib/models/OverviewHistory.js</li>
-
-                    <li>67: lib/assets/scripts/plato-file.js</li>
-
-                    <li>67: lib/models/FileHistory.js</li>
+                    <li>
+                        <strong>78 score</strong>
+                        <small>lib/reporters/complexity/index.js</small>
+                    </li>
 
                 </ul>
             </div>
         </div>
         <div class="col-md-4">
             <div class="reportBlock locList">
-                <h3>Largest Files:</h3>
+                <h2 class="reportTitle">Largest Files</h2>
                 <ul class="list-unstyled">
 
-                    <li>242: lib/plato.js</li>
+                    <li>
+                        <strong>242 lines</strong>
+                        <small>lib/plato.js</small>
+                    </li>
 
-                    <li>175: lib/assets/scripts/plato-overview.js</li>
+                    <li>
+                        <strong>175 lines</strong>
+                        <small>lib/assets/scripts/plato-overview.js</small>
+                    </li>
 
-                    <li>148: lib/assets/scripts/plato-file.js</li>
+                    <li>
+                        <strong>148 lines</strong>
+                        <small>lib/assets/scripts/plato-file.js</small>
+                    </li>
 
-                    <li>96: lib/cli.js</li>
+                    <li>
+                        <strong>96 lines</strong>
+                        <small>lib/cli.js</small>
+                    </li>
 
-                    <li>87: lib/assets/scripts/plato-sortable-file-list.js</li>
-
-                    <li>75: lib/assets/scripts/codemirror.markpopovertext.js</li>
-
-                    <li>64: lib/util.js</li>
-
-                    <li>56: lib/assets/scripts/plato-display.js</li>
-
-                    <li>52: lib/reporters/jshint/index.js</li>
-
-                    <li>29: lib/models/History.js</li>
+                    <li>
+                        <strong>87 lines</strong>
+                        <small>lib/assets/scripts/plato-sortable-file-list.js</small>
+                    </li>
 
                 </ul>
             </div>
         </div>
         <div class="col-md-4">
             <div class="reportBlock lintList">
-                <h3>Lint Warnings:</h3>
+                <h2 class="reportTitle">Lint Warnings</h2>
                 <ul class="list-unstyled">
 
-                    <li>0: lib/assets/scripts/codemirror.markpopovertext.js</li>
+                    <li>
+                        <strong>0 lint errors</strong>
+                        <small>lib/assets/scripts/codemirror.markpopovertext.js</small>
+                   </li>
 
-                    <li>0: lib/assets/scripts/plato-display.js</li>
+                    <li>
+                        <strong>0 lint errors</strong>
+                        <small>lib/assets/scripts/plato-display.js</small>
+                   </li>
 
-                    <li>0: lib/assets/scripts/plato-file.js</li>
+                    <li>
+                        <strong>0 lint errors</strong>
+                        <small>lib/assets/scripts/plato-file.js</small>
+                   </li>
 
-                    <li>0: lib/assets/scripts/plato-overview.js</li>
+                    <li>
+                        <strong>0 lint errors</strong>
+                        <small>lib/assets/scripts/plato-overview.js</small>
+                   </li>
 
-                    <li>0: lib/assets/scripts/plato-sortable-file-list.js</li>
-
-                    <li>0: lib/cli.js</li>
-
-                    <li>0: lib/info.js</li>
-
-                    <li>0: lib/logger.js</li>
-
-                    <li>0: lib/models/FileHistory.js</li>
-
-                    <li>0: lib/models/History.js</li>
+                    <li>
+                        <strong>0 lint errors</strong>
+                        <small>lib/assets/scripts/plato-sortable-file-list.js</small>
+                   </li>
 
                 </ul>
             </div>

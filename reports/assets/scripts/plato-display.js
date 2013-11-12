@@ -21,13 +21,13 @@ $(function(){
       xkey        : 'date',
       ykeys       : ['average_sloc'],
       parseTime   : false,
-      lineColors  : ['#bdc3c7'],
+      lineColors  : ['#2A2A2A'],
       pointSize   : 0,
       lineWidth   : 0,
       grid        : false,
       axes        : false,
       hideHover   : 'always',
-      fillOpacity : 0.2
+      fillOpacity : 1
     });
 
     Morris.Area({
@@ -38,13 +38,13 @@ $(function(){
       labels      : ['Maintainability'],
       ymax        : 100,
       parseTime   : false,
-      lineColors  : ['#bdc3c7'],
+      lineColors  : ['#2A2A2A'],
       pointSize   : 0,
       lineWidth   : 0,
       grid        : false,
       axes        : false,
       hideHover   : 'always',
-      fillOpacity : 0.2
+      fillOpacity : 1
     });
   }
 
