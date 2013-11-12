@@ -30,7 +30,7 @@
         <div class="col-md-6">
             <div class="reportBlock lineCount">
                 <div class="reportContent">
-                    <small>Total / Average Lines</small>
+                    <small class="chart-label">Total / Average Lines</small>
                     <h1><%= report.summary.total.sloc %> / <%= report.summary.average.sloc %></h1>
                 </div>
                 <div id="chart_historical_sloc" class="chart js-chart"></div>
@@ -39,7 +39,7 @@
         <div class="col-md-6">
             <div class="reportBlock maintainability">
                 <div class="reportContent">
-                    <small>Average Maintainability</small>
+                    <small class="chart-label">Average Maintainability</small>
                     <h1><%= report.summary.average.maintainability %></h1>
                 </div>
                 <div id="chart_historical_maint" class="chart js-chart"></div>
@@ -50,30 +50,39 @@
     <div class="row">
         <div class="col-md-4">
             <div class="reportBlock maintainabilityList">
-                <h3>Worst Maintainbility Scores:</h3>
+                <h2 class="reportTitle">Worst Maintainability Scores</h2>
                 <ul class="list-unstyled">
-<% _.each(_.first(_.sortBy(report.reports, function (report) { return -1 * report.complexity.maintainability; }), 10), function(report, i) { %>
-                    <li><%= report.complexity.maintainability.toFixed(0) %>: <%= report.info.fileShort %></li>
+<% _.each(_.first(_.sortBy(report.reports, function (report) { return -1 * report.complexity.maintainability; }), 5), function(report, i) { %>
+                    <li>
+                        <strong><%= report.complexity.maintainability.toFixed(0) %> score</strong>
+                        <small><%= report.info.fileShort %></small>
+                    </li>
 <% }); %>
                 </ul>
             </div>
         </div>
         <div class="col-md-4">
             <div class="reportBlock locList">
-                <h3>Largest Files:</h3>
+                <h2 class="reportTitle">Largest Files</h2>
                 <ul class="list-unstyled">
-<% _.each(_.first(_.sortBy(report.reports, function (report) { return -1 * report.complexity.aggregate.complexity.sloc.physical }), 10), function(report, i) { %>
-                    <li><%= report.complexity.aggregate.complexity.sloc.physical %>: <%= report.info.fileShort %></li>
+<% _.each(_.first(_.sortBy(report.reports, function (report) { return -1 * report.complexity.aggregate.complexity.sloc.physical }), 5), function(report, i) { %>
+                    <li>
+                        <strong><%= report.complexity.aggregate.complexity.sloc.physical %> lines</strong>
+                        <small><%= report.info.fileShort %></small>
+                    </li>
 <% }); %>
                 </ul>
             </div>
         </div>
         <div class="col-md-4">
             <div class="reportBlock lintList">
-                <h3>Lint Warnings:</h3>
+                <h2 class="reportTitle">Lint Warnings</h2>
                 <ul class="list-unstyled">
-<% _.each(_.first(_.sortBy(report.reports, function (report) { return -1 * report.jshint.messages }), 10), function(report, i) { %>
-                    <li><%= report.jshint.messages %>: <%= report.info.fileShort %></li>
+<% _.each(_.first(_.sortBy(report.reports, function (report) { return -1 * report.jshint.messages }), 5), function(report, i) { %>
+                    <li>
+                        <strong><%= report.jshint.messages %> lint errors</strong>
+                        <small><%= report.info.fileShort %></small>
+                   </li>
 <% }); %>
                 </ul>
             </div>
